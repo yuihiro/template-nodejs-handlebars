@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+<button class="ui primary button" id="btn">이동</button>
+<div style="height:200px">
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>갯수</th>
+                <th>타이틀</th>
+                <th>작가</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody> {{#each comments}}
+            <tr>
+                <td>
+                    <h4 class="ui image header" onclick="viewImage()">
+                        <img src="{{thumbnailUrl}}" class="ui mini rounded image">
+                        <div class="content"> {{id}}
+                            <div class="sub header">{{title}} </div>
+                        </div>
+                    </h4>
+                </td>
+                <td>{{thumbnailUrl}}</td>
+                <td>{{url}}</td>
+            </tr> {{/each}} </tbody>
+    </table>
+</div>
