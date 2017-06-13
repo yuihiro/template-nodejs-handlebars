@@ -20,7 +20,7 @@ this["Template"]["test"] = Handlebars.template({"1":function(container,depth0,he
 
   return "<h1>"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\r\n<button class=\"ui primary button\" id=\"btn\">이동</button>\r\n<div style=\"height:200px\">\r\n    <table class=\"ui celled table\">\r\n        <thead>\r\n            <tr>\r\n                <th>홀</th>\r\n                <th>타이틀</th>\r\n                <th>작가</th>\r\n                <th>날짜</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody> "
+    + "</h1>\r\n<div>\r\n    <button class=\"ui primary button\" id=\"btn\">이동</button>\r\n    <table class=\"ui celled table\">\r\n        <thead>\r\n            <tr>\r\n                <th>홀</th>\r\n                <th>타이틀</th>\r\n                <th>작가</th>\r\n                <th>날짜</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody> "
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.comments : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " </tbody>\r\n    </table>\r\n</div>\r\n</div>";
 },"useData":true});

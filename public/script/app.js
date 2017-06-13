@@ -6,21 +6,45 @@
     var $content = $body.find('#content')
     $content.html("<h1>sadfdsaf</h1");
     axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+    var inited = false;
     var me = this;
-    axios.get('/photos').then(function(result) {
-        console.log(result.data.length)
-        var data = {
-            title: "photos",
-            comments: _.take(result.data, 100)
-        };
-        createTabel(data);
-    }).catch(function(error) {});
+    var sample_data = null;
+    loadData();
+
+    function loadData() {
+        axios.get('/photos').then(function(result) {
+            console.log(result.data.length);
+            var data = {
+                title: "photos",
+                comments: _.slice(result.data, 0, 10)
+            };
+            sample_data = result.data;
+            createTabel(data);
+            if(inited == false) {
+                init();
+            }
+        }).catch(function(error) {});
+    }
+
+    function init() {
+        $('#btn').on('click', function(e) {
+            var template = Template.test;
+            log.info("헉");
+            var data = {
+                title: "photos",
+                comments: _.slice(sample_data, 10, 20)
+            };
+            $("#content").append(template(data));
+            log.info(e);
+        });
+        inited = true;
+    }
 
     function createTabel(data) {
         var source = $("#test").html();
         //var template = Handlebars.compile(source);
         var template = Template.test;
-        $("#content").html(template(data));
+        $("#content").append(template(data));
         $('.thumb').magnificPopup({
             type: 'image',
             closeOnContentClick: true,
